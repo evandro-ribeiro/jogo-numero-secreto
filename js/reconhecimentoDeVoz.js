@@ -12,6 +12,7 @@ function onSpeak(e) {
     var chute = e.results[0][0].transcript;
     exibeChute(chute);
     validaChute(chute);
+    acabaJogo(chute);
 }
 
 function exibeChute(chute) {
@@ -43,6 +44,18 @@ function confereChute(chute) {
         elementoChute.innerHTML += `<div>O número secreto é menor <i class="fa-solid fa-arrow-down-long"></i></div>`;
     } else {
         elementoChute.innerHTML += `<div>O número secreto é maior <i class="fa-solid fa-arrow-up-long"></i></div>`;
+    }
+}
+
+function acabaJogo(chute) {
+    if (chute == 'game over') {
+        document.body.innerHTML = `
+            <h2>Game Over</h2>
+            <h3>Pressione o botão para jogar.</h3>
+
+            <button id="jogar_novamente" class="btn_jogar">Jogar Novamente</button>
+        `;
+        document.body.style.backgroundColor = "black";
     }
 }
 
